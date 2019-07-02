@@ -1,26 +1,42 @@
 version: 2.0
 jobs:
-  bobby:
+  build:
     docker:
       - image: circleci/node:8.10
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Building
           command:
-            echo 'Hello World!'
-  sally:
+            echo 'npm installing'
+            npm install
+            CI=true npm run build
+  test:
     docker:
       - image: circleci/node:8.10
     steps:
       - checkout
       - run:
-          name: The First Step
+          name: Testing
           command:
-            echo 'Double trouble'
+            echo 'testing stuff'
+            npm install
+            npm test
+  random:
+    docker:
+      - image: circleci/node:8.10
+    steps:
+      - checkout
+      - run:
+          name: Random
+          command:
+            echo 'random stuff'
 workflows:
   version: 2
-  bobby_sally:
+  build_test_and_lint:
     jobs:
-      - bobby
-      - sally
+      - build
+      - random
+      - test:
+          requires:
+            - random

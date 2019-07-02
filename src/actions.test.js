@@ -35,7 +35,7 @@ it('handles requesting robots API', () => {
 	expect(action[0]).toEqual(expectedAction);
 })
 
-describe('test robots API', () => {
+/* describe('test robots API', () => {
 	afterEach(() => {
 		fetchMock.reset()
 		fetchMock.restore()
@@ -57,4 +57,4 @@ describe('test robots API', () => {
 				expect(store.getActions()).toEqual(expectedAction);
 			})
 	})
-})
+}) */
