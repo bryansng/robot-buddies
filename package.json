@@ -5,6 +5,8 @@
   "homepage": "https://bryansng.github.io/robot-buddies",
   "dependencies": {
     "gh-pages": "^2.0.1",
+    "husky": "^3.0.0",
+    "pretty-quick": "^1.11.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.1.0",
@@ -19,6 +21,7 @@
     "enzyme-adapter-react-16": "^1.14.0",
     "fetch-mock": "^7.3.3",
     "node-fetch": "^2.6.0",
+    "prettier": "1.18.2",
     "redux-mock-store": "^1.5.3"
   },
   "scripts": {
@@ -40,5 +43,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
